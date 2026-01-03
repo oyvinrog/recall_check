@@ -4,10 +4,10 @@
   "version": "0.1.0",
   "identifier": "com.recallcheck.app",
   "build": {
-    "beforeDevCommand": "python3 -m http.server 1420 --directory /home/user/scripts/recall_check/ui",
+    "beforeDevCommand": "python3 -m http.server 1420 --directory ../ui",
     "beforeBuildCommand": "",
     "devUrl": "http://127.0.0.1:1420",
-    "frontendDist": "/home/user/scripts/recall_check/ui"
+    "frontendDist": "../ui"
   },
   "app": {
     "withGlobalTauri": true,
