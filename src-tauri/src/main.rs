@@ -39,23 +39,20 @@ struct EvaluationResponse {
 
 #[tauri::command]
 fn get_api_key_status() -> Result<ApiKeyStatus, String> {
-    let entry =
-        Entry::new(KEYRING_SERVICE, KEYRING_USER).map_err(|err| err.to_string())?;
+    let entry = Entry::new(KEYRING_SERVICE, KEYRING_USER).map_err(|err| err.to_string())?;
     let exists = entry.get_password().is_ok();
     Ok(ApiKeyStatus { exists })
 }
 
 #[tauri::command]
 fn set_api_key(key: String) -> Result<(), String> {
-    let entry =
-        Entry::new(KEYRING_SERVICE, KEYRING_USER).map_err(|err| err.to_string())?;
+    let entry = Entry::new(KEYRING_SERVICE, KEYRING_USER).map_err(|err| err.to_string())?;
     entry.set_password(&key).map_err(|err| err.to_string())
 }
 
 #[tauri::command]
 async fn evaluate_recall(payload: EvaluationRequest) -> Result<EvaluationResponse, String> {
-    let entry =
-        Entry::new(KEYRING_SERVICE, KEYRING_USER).map_err(|err| err.to_string())?;
+    let entry = Entry::new(KEYRING_SERVICE, KEYRING_USER).map_err(|err| err.to_string())?;
     let api_key = entry
         .get_password()
         .map_err(|_| "Missing API key".to_string())?;
