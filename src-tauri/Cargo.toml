@@ -1,0 +1,17 @@
+[package]
+name = "recall_check"
+version = "0.1.0"
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+keyring = "2"
+reqwest = { version = "0.11", features = ["json", "rustls-tls"] }
+tauri = { version = "2", features = [] }
+
+[features]
+custom-protocol = ["tauri/custom-protocol"]

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "RecallCheck",
+  "version": "0.1.0",
+  "identifier": "com.recallcheck.app",
+  "build": {
+    "beforeDevCommand": "python3 -m http.server 1420 --directory /home/user/scripts/recall_check/ui",
+    "beforeBuildCommand": "",
+    "devUrl": "http://127.0.0.1:1420",
+    "frontendDist": "/home/user/scripts/recall_check/ui"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "title": "RecallCheck",
+        "width": 1200,
+        "height": 820,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": []
+  }
+}

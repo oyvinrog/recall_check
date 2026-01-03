@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RecallCheck</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Rubik+Mono+One&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="ambient">
+      <div class="orb orb--sun"></div>
+      <div class="orb orb--sea"></div>
+      <div class="grid"></div>
+    </div>
+
+    <main class="app">
+      <header class="app__header">
+        <div>
+          <p class="app__kicker">Recite. Measure. Remember.</p>
+          <h1 class="app__title">RecallCheck</h1>
+        </div>
+        <button class="ghost-button" id="settings-toggle">Settings</button>
+      </header>
+
+      <section class="hero">
+        <div class="hero__intro">
+          <h2>Three minutes to prove what you know.</h2>
+          <p>
+            Pick a subject, recite it from memory, and let RecallCheck grade accuracy
+            and speed. Mistakes are annotated, missing pieces are surfaced, and the
+            score arrives the moment the timer ends.
+          </p>
+        </div>
+        <div class="hero__tiles">
+          <div class="tile">
+            <span class="tile__label">WPM</span>
+            <span class="tile__value" id="wpm">—</span>
+            <span class="tile__meta" id="timer">03:00</span>
+          </div>
+          <div class="tile tile--grade">
+            <span class="tile__label">Grade</span>
+            <span class="tile__value" id="grade">—</span>
+            <span class="tile__meta" id="grade-note">Awaiting recall</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <div class="panel">
+          <div class="panel__header">
+            <h3>Reference Text</h3>
+            <span class="panel__hint">Paste what you studied.</span>
+          </div>
+          <textarea
+            id="reference"
+            placeholder="Paste or type the source material you are recalling."
+          ></textarea>
+        </div>
+
+        <div class="panel panel--editor">
+          <div class="panel__header">
+            <h3>Recall Editor</h3>
+            <span class="panel__hint">Start typing to begin the 3-minute timer.</span>
+          </div>
+          <div class="editor" id="recall" contenteditable="true" spellcheck="false"></div>
+          <div class="panel__footer">
+            <button class="primary-button" id="start-over">Reset Session</button>
+            <span class="panel__hint" id="status">Waiting for input.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="results">
+        <div class="results__header">
+          <h3>Missing Pieces</h3>
+          <p>What you didn't mention appears here after scoring.</p>
+        </div>
+        <ul class="results__list" id="missing"></ul>
+        <div class="results__notes" id="summary"></div>
+      </section>
+    </main>
+
+    <div class="drawer" id="settings-drawer" aria-hidden="true">
+      <div class="drawer__content">
+        <div class="drawer__header">
+          <h3>Settings</h3>
+          <button class="ghost-button" id="settings-close">Close</button>
+        </div>
+        <label class="field">
+          <span>OpenAI API Key</span>
+          <input type="password" id="api-key" placeholder="sk-..." />
+        </label>
+        <button class="primary-button" id="save-key">Save API Key</button>
+        <p class="drawer__note">Your key is stored securely in the system keyring.</p>
+      </div>
+    </div>
+
+    <div class="modal" id="key-modal" aria-hidden="true">
+      <div class="modal__content">
+        <h3>Connect your OpenAI key</h3>
+        <p>RecallCheck stores it in your local keyring. You can update it anytime.</p>
+        <input type="password" id="api-key-modal" placeholder="sk-..." />
+        <button class="primary-button" id="save-key-modal">Save Key</button>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
