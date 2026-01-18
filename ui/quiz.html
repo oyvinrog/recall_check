@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RecallCheck Quiz</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Rubik+Mono+One&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="quiz-body">
+    <div class="quiz-ambient">
+      <div class="quiz-orb quiz-orb--glow"></div>
+      <div class="quiz-orb quiz-orb--ember"></div>
+      <div class="quiz-spark"></div>
+    </div>
+
+    <main class="quiz">
+      <header class="quiz__header">
+        <div>
+          <p class="quiz__kicker">Quiz Mode</p>
+          <h1 class="quiz__title">RecallCheck Quiz</h1>
+          <p class="quiz__subtitle">Micro prompts to reinforce the source text.</p>
+        </div>
+        <div class="quiz__stats">
+          <div class="quiz__stat">
+            <span class="quiz__label">Confidence</span>
+            <span class="quiz__value" id="confidence">0%</span>
+            <span class="quiz__delta" id="confidence-delta">+0%</span>
+            <div class="quiz__meter">
+              <div class="quiz__meter-bar" id="confidence-bar"></div>
+            </div>
+          </div>
+          <div class="quiz__stat">
+            <span class="quiz__label">Streak</span>
+            <span class="quiz__value" id="streak">0</span>
+            <span class="quiz__delta" id="attempts">0 tries</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="quiz__card" id="quiz-card">
+        <div class="quiz__prompt" id="prompt">Paste reference text in the main window.</div>
+        <div class="quiz__meta" id="source">Waiting for content.</div>
+      </section>
+
+      <section class="quiz__input">
+        <label class="quiz__label" for="answer">Type the missing words</label>
+        <textarea
+          id="answer"
+          rows="3"
+          placeholder="Fill in the blanks shown above."
+        ></textarea>
+        <div class="quiz__actions">
+          <button class="primary-button" id="check-answer">Check Answer</button>
+          <button class="ghost-button" id="next-question">Next Prompt</button>
+          <button class="ghost-button" id="reload-reference">Reload Reference</button>
+        </div>
+        <div class="quiz__feedback" id="feedback"></div>
+      </section>
+    </main>
+
+    <script src="quiz.js"></script>
+  </body>
+</html>

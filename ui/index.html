@@ -51,16 +51,65 @@
         </div>
       </section>
 
+      <section class="library">
+        <div class="panel">
+          <div class="panel__header">
+            <h3>URL Library</h3>
+            <span class="panel__hint" id="url-status">Ready to fetch.</span>
+          </div>
+          <div class="library__row">
+            <label class="field">
+              <span>Category</span>
+              <select id="url-category"></select>
+            </label>
+            <div class="library__actions">
+              <button class="primary-button" id="load-random-url">Load Random URL</button>
+              <button class="ghost-button" id="open-source">Open Source</button>
+            </div>
+          </div>
+          <label class="field">
+            <span>Add URL</span>
+            <div class="inline-field">
+              <input type="text" id="url-input" placeholder="https://..." />
+              <button class="ghost-button" id="add-url">Add URL</button>
+            </div>
+          </label>
+          <label class="field">
+            <span>Add Category</span>
+            <div class="inline-field">
+              <input type="text" id="category-input" placeholder="DP-600 Spark" />
+              <button class="ghost-button" id="add-category">Add Category</button>
+            </div>
+          </label>
+          <div class="field">
+            <span>URLs in Category</span>
+            <ul class="url-list" id="url-list"></ul>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel__header">
+            <h3>URL Stats</h3>
+            <span class="panel__hint">Lowest averages first.</span>
+          </div>
+          <div class="stats" id="url-stats"></div>
+        </div>
+      </section>
+
       <section class="workspace">
         <div class="panel">
           <div class="panel__header">
             <h3>Reference Text</h3>
-            <span class="panel__hint">Paste what you studied.</span>
+            <span class="panel__hint" id="reference-source">Source: Manual entry.</span>
           </div>
           <textarea
             id="reference"
             placeholder="Paste or type the source material you are recalling."
           ></textarea>
+          <div class="panel__footer panel__footer--stack">
+            <button class="primary-button" id="open-quiz">Open Quiz Window</button>
+            <span class="panel__hint">Launch quick prompts from the text above.</span>
+          </div>
         </div>
 
         <div class="panel panel--editor">

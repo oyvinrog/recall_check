@@ -29,6 +29,35 @@ RecallCheck is a Tauri + Rust desktop app for timed recall practice. You recite 
 cargo tauri dev
 ```
 
+## Versioning
+Use the CLI helper to bump the app version in both `src-tauri/Cargo.toml` and
+`src-tauri/tauri.conf.json`.
+
+Patch bump (default):
+```bash
+python3 scripts/bump_version.py
+```
+
+Minor bump:
+```bash
+python3 scripts/bump_version.py minor
+```
+
+Major bump:
+```bash
+python3 scripts/bump_version.py major
+```
+
+Set an explicit version:
+```bash
+python3 scripts/bump_version.py --set 1.2.3
+```
+
+If versions drift:
+```bash
+python3 scripts/bump_version.py --sync-from cargo
+```
+
 ## Settings
 - The OpenAI API key is stored in your OS keyring.
 - On first run you’ll be prompted for a key; you can update it anytime in Settings.
